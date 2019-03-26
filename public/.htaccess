@@ -3,12 +3,4 @@ RewriteEngine On
 RewriteBase /
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule \.(jpeg|jpg|gif|png)$ /public/404.php [NC,L]
-
-RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /(.*)index\.php($|\ |\?)
-RewriteRule ^ /%1 [R=301,L]
-
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_FILENAME} !-l
-RewriteRule ^(.*) /index.php?q=$1
+RewriteRule ^(.*)$ index.php?$1 [L,QSA]
